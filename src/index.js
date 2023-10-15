@@ -15,9 +15,6 @@ app.engine('hbs', handlebars.engine({extname: 'hbs'}));
 app.set('view engine', "hbs");
 app.set('views', 'src/views');
 
-//Paths
-app.get('/', (req, res) => {
-    res.render('home');
-});
+app.use(router);
 
 app.listen(configFile.PORT, () => console.log(`Server is listening on Port: ${configFile.PORT}...`));
