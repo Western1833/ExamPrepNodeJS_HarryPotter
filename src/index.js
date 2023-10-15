@@ -1,6 +1,7 @@
 const express = require('express');
 const configFile = require('./constants.js');
 const path = require('path');
+const router = require('./router.js');
 
 const app = express();
 
