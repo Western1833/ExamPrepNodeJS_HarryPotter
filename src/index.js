@@ -17,7 +17,7 @@ app.set('views', 'src/views');
 
 //Paths
 app.get('/', (req, res) => {
-    res.render('layouts/main', "home");
+    res.render('home');
 });
 
 app.listen(configFile.PORT, () => console.log(`Server is listening on Port: ${configFile.PORT}...`));
