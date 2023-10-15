@@ -1,11 +1,13 @@
 const router = require('express').Router();
+const {register} = require('../services/userService.js');
 
 router.get('/register', (req, res) => {
     res.render('user/register');
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
     const {firstName, lastName, email, password, repeatPassword} = req.body;
+    await register({firstName, lastName, email, password, repeatPassword});
     res.redirect('/users/login');
 });
 
