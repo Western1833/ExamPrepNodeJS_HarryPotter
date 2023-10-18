@@ -28,11 +28,11 @@
 
             <ul class="menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="#">All Posts</a></li>
+                <li><a href="/all-posts">All Posts</a></li>
                 <!-- Logged users -->
                 {{#if isAuthenticated}}
-                <li><a href="#">Create Post</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="/users/create">Create Post</a></li>
+                <li><a href="/users/my-posts">Profile</a></li>
                 <li><a href="/users/logout">Logout</a></li>
                 <!-- Guest users -->
                 {{else}}
@@ -42,6 +42,12 @@
             </ul>
 
         </nav>
+
+        {{#each errorMessages}}
+            <div class="error-container">
+                <p>{{this}}</p>
+            </div>
+        {{/each}}
 
         {{{body}}}
 
