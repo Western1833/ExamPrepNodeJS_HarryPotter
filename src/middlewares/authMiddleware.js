@@ -1,7 +1,8 @@
 const jwt = require('../lib/jwt.js');
+const {SECRET} = require('../constants.js');
 
 exports.auth = async (req, res, next) => {
-    const token = req.cookies['auth'];
+    const token = req.cookies['token'];
 
     if(token){
         try{
@@ -17,6 +18,8 @@ exports.auth = async (req, res, next) => {
         }
 
         return;
+    }else{
+        res.locals.isAuthenticated = false;
     }
 
     next();
