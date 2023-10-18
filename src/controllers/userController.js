@@ -41,8 +41,16 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-router.get('/users/create', (res, req) => {
+router.get('/create', (req, res) => {
     res.render('post/create');
+});
+
+router.get('/all-posts', (req, res) => {
+    res.render('post/all-posts');
+});
+
+router.get('/my-posts', (req, res) => {
+    res.render('post/my-posts');
 });
 
 module.exports = router;
