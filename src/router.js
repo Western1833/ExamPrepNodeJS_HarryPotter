@@ -8,4 +8,8 @@ router.use(homeController);
 //User controller routes
 router.use('/users', userController);
 
+router.get('*', (req, res) => {
+    res.redirect('/404');
+})
+
 module.exports = router;
