@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const {register, login} = require('../services/userService.js');
 const {extractErrorMessages} = require('./../utils/errorHandler.js');
+const {createCreature} = require('../services/creatureService.js');
+const Creature = require('../models/Creature.js');
 
 router.get('/register', (req, res) => {
     res.render('user/register');
@@ -24,7 +26,7 @@ router.get('/login', (req, res) => {
 
 router.post('/login', async (req, res) => {
     const {email, password} = req.body;
-
+  
     try{
         const token = await login(email, password);
         res.cookie('token', token, {httpOnly: true});
@@ -39,18 +41,6 @@ router.post('/login', async (req, res) => {
 router.get('/logout', (req, res) => {
     res.clearCookie('token');
     res.redirect('/');
-});
-
-router.get('/create', (req, res) => {
-    res.render('post/create');
-});
-
-router.get('/all-posts', (req, res) => {
-    res.render('post/all-posts');
-});
-
-router.get('/my-posts', (req, res) => {
-    res.render('post/my-posts');
 });
 
 module.exports = router;
