@@ -10,4 +10,4 @@ exports.editCreature = (creatureId, data) => Creature.findByIdAndUpdate(creature
 
 exports.deleteCreture = (creatureId) => Creature.findByIdAndDelete(creatureId);
 
-exports.getMyCreatures = (ownerId) => Creature.find({owner: ownerId});
+exports.getMyCreatures = (ownerId) => Creature.find({owner: ownerId}).populate('owner');
