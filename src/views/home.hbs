@@ -14,23 +14,14 @@
 
   <section id="home-page">
 
+
     <div class="offers">
+    {{#each creatures}}
       <div class="col container"><img
-          src="/img/Niffler.webp"
-          alt="Niffler"
+          src="{{image}}"
+          alt="{{name}}"
         /></div>
-      <div class="col container"><img
-          src="/img/Demiguise.webp"
-          alt="Demiguise"
-        /></div>
-      <div class="col container"><img
-          src="/img/Hippogriff.jpg"
-          alt="Hippogriff"
-        /></div>
-      <div class="col container"><img
-          src="/img/Basilisk.jpg"
-          alt="Basilisk"
-        /></div>
+    {{/each}}
     </div>
 
   </section>
